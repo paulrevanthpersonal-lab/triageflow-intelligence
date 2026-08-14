@@ -1,0 +1,11 @@
+services:
+  triageflow:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - triageflow-data:/app/runtime
+    restart: unless-stopped
+
+volumes:
+  triageflow-data:

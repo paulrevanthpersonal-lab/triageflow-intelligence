@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071318">
+  <meta name="description" content="TriageFlow Intelligence - explainable help-desk ticket classification, routing, and human review.">
+  <title>TriageFlow Intelligence</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%232ee7b6%22/><path d=%22M7 9h18M7 16h13M7 23h8%22 stroke=%22%23071318%22 stroke-width=%222.4%22/></svg>">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <div class="shell">
+    <aside class="rail" id="rail">
+      <a class="brand" href="#overview" aria-label="TriageFlow home">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 8h26M7 20h18M7 32h10"/><circle cx="32" cy="20" r="3"/><circle cx="24" cy="32" r="3"/></svg>
+        <span>TriageFlow<small>INTELLIGENCE</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <button class="active" data-view="overview"><span>01</span>Command center</button>
+        <button data-view="classify"><span>02</span>Classify ticket</button>
+        <button data-view="queue"><span>03</span>Review queue <b id="reviewBadge">4</b></button>
+        <button data-view="observability"><span>04</span>Model observability</button>
+        <button data-view="knowledge"><span>05</span>Knowledge assist</button>
+        <button data-view="model-card"><span>06</span>Model card</button>
+        <button data-view="about"><span>07</span>System design</button>
+      </nav>
+      <div class="rail-footer">
+        <div class="avatar">PR</div>
+        <div><strong>Paul Revanth</strong><small>Technical Engineering</small></div>
+      </div>
+    </aside>
+
+    <main id="mainContent">
+      <header class="topbar">
+        <button class="menu" id="menuButton" aria-label="Open navigation" aria-expanded="false">Menu</button>
+        <div class="environment"><i></i><span>Model online</span><b>v1.0</b></div>
+        <div class="top-actions">
+          <a href="/docs" target="_blank">API reference</a>
+          <button class="primary compact" data-jump="classify">Classify a ticket</button>
+        </div>
+      </header>
+
+      <section class="view active" data-page="overview">
+        <div class="hero-heading">
+          <div><p class="eyebrow">SERVICE INTELLIGENCE / LIVE WORKSPACE</p><h1>Make every ticket<br><em>actionable.</em></h1></div>
+          <div class="hero-note"><span>01</span><p>Explainable classification, priority prediction, and support routing—with a human in control.</p></div>
+        </div>
+
+        <div class="metric-grid">
+          <article><div><span>ROUTING ACCURACY</span><i class="status-dot"></i></div><strong id="accuracyMetric">96.9%</strong><small>Category holdout accuracy</small><svg viewBox="0 0 180 42" preserveAspectRatio="none"><path d="M0 32C20 29 31 36 51 26s29 4 47-8 31 8 49-3 24-5 33-12"/></svg></article>
+          <article><div><span>ASSISTED ROUTES</span><i class="status-dot"></i></div><strong id="classifiedMetric">08</strong><small>Saved classifications</small><svg viewBox="0 0 180 42" preserveAspectRatio="none"><path d="M0 34C17 24 35 32 50 20s36 8 50-4 27 2 42-9 26 4 38-5"/></svg></article>
+          <article><div><span>HUMAN REVIEW</span><i class="status-dot amber"></i></div><strong id="reviewMetric">25%</strong><small>Confidence-aware escalation</small><svg viewBox="0 0 180 42" preserveAspectRatio="none"><path d="M0 25C19 19 33 30 49 24s26-9 44 0 30 0 42-7 27 8 45-2"/></svg></article>
+          <article><div><span>MODEL DRIFT</span><i class="status-dot"></i></div><strong>LOW</strong><small>Last evaluation · synthetic data</small><svg viewBox="0 0 180 42" preserveAspectRatio="none"><path d="M0 26C25 24 33 27 55 23s31 3 50-2 40 4 75-3"/></svg></article>
+        </div>
+
+        <div class="overview-grid">
+          <article class="panel flow-panel">
+            <div class="panel-head"><div><p class="eyebrow">DECISION PIPELINE</p><h2>From request to accountable action</h2></div><span class="live-label"><i></i> LIVE</span></div>
+            <div class="pipeline">
+              <div><span>01</span><i class="glyph">Aa</i><strong>Understand</strong><small>Normalize ticket language</small></div>
+              <b>→</b>
+              <div><span>02</span><i class="glyph">%</i><strong>Classify</strong><small>Category + priority</small></div>
+              <b>→</b>
+              <div><span>03</span><i class="glyph">↗</i><strong>Route</strong><small>Team + SLA target</small></div>
+              <b>→</b>
+              <div><span>04</span><i class="glyph">✓</i><strong>Validate</strong><small>Human feedback loop</small></div>
+            </div>
+            <div class="confidence-bar"><span>Automation boundary</span><div><i style="width:72%"></i><b style="left:64%">REVIEW THRESHOLD</b></div><strong>High confidence → assisted routing</strong></div>
+          </article>
+          <article class="panel category-panel">
+            <div class="panel-head"><div><p class="eyebrow">TODAY'S MIX</p><h2>Ticket categories</h2></div><button class="text-button" data-jump="queue">Open queue ↗</button></div>
+            <div class="donut-wrap"><div class="donut"><div><strong>8</strong><span>tickets</span></div></div><ul><li><i style="--c:#2ee7b6"></i>Access & Identity <b>25%</b></li><li><i style="--c:#7f9cff"></i>Network & Connectivity <b>25%</b></li><li><i style="--c:#ffb457"></i>Applications <b>25%</b></li><li><i style="--c:#cf8cff"></i>Other services <b>25%</b></li></ul></div>
+          </article>
+        </div>
+
+        <article class="panel activity-panel">
+          <div class="panel-head"><div><p class="eyebrow">RECENT DECISIONS</p><h2>Classification activity</h2></div><span>Confidence shown for transparency</span></div>
+          <div class="table-wrap"><table><thead><tr><th>Ticket</th><th>Signal</th><th>Category</th><th>Priority</th><th>Confidence</th><th>Decision</th></tr></thead><tbody id="activityRows"></tbody></table></div>
+        </article>
+      </section>
+
+      <section class="view" data-page="classify">
+        <div class="page-heading"><div><p class="eyebrow">ASSISTED TRIAGE</p><h1>Classify a ticket</h1><span>Turn unstructured support language into a reviewable routing decision.</span></div><div class="stage-chip">MODEL v1.0 · EXPLAINABLE</div></div>
+        <div class="classifier-layout">
+          <form class="panel ticket-form" id="ticketForm">
+            <div class="panel-head"><div><p class="eyebrow">TICKET INTAKE</p><h2>Describe the user impact</h2></div><button type="button" class="text-button" id="clearForm">Clear</button></div>
+            <div class="sample-row"><span>Try an example</span><button type="button" data-example="identity">Identity</button><button type="button" data-example="network">Network</button><button type="button" data-example="security">Security</button></div>
+            <label>Subject<input name="subject" minlength="5" maxlength="160" required value="Remote employees cannot connect to VPN" placeholder="Short, specific problem statement"></label>
+            <label>Description<textarea name="description" minlength="12" maxlength="3000" required placeholder="Who is affected, what changed, errors observed, and business impact">Multiple departments report that the VPN disconnects within two minutes. Around 95 remote employees cannot access internal applications, and the workaround is limited.</textarea><small><span id="charCount">168</span> / 3000</small></label>
+            <div class="field-grid"><label>Requester<input name="requester" value="Service Desk"></label><label>Affected users<input type="number" name="affected_users" min="1" max="100000" value="95"></label></div>
+            <label>Business service<select name="business_service"><option>Remote Access</option><option>Corporate IT</option><option>Identity Platform</option><option>Customer Operations</option><option>Finance Systems</option></select></label>
+            <div class="privacy-note"><strong>Privacy first</strong><span>Use synthetic or privacy-reviewed text. Never paste passwords, tokens, or personal data.</span></div>
+            <button class="primary submit" type="submit"><span>Run intelligent triage</span><b>⌘ ↵</b></button>
+          </form>
+
+          <article class="panel result-panel" id="resultPanel" aria-live="polite">
+            <div class="result-empty" id="resultEmpty"><div class="radar"><i></i><i></i><i></i><b></b></div><h2>Ready to analyze</h2><p>The model will return category, priority, assignment group, confidence, rationale terms, and recommended actions.</p></div>
+            <div class="result-content hidden" id="resultContent">
+              <div class="result-top"><div><p class="eyebrow">ROUTING DECISION</p><small id="resultId">TF-00000000</small></div><span class="decision-state" id="reviewState">ASSISTED ROUTE</span></div>
+              <div class="decision-grid"><div><span>CATEGORY</span><strong id="resultCategory">Network & Connectivity</strong><small id="resultGroup">Network Operations</small></div><div><span>PRIORITY</span><strong id="resultPriority">P2</strong><small id="resultSla">60-minute response target</small></div></div>
+              <div class="confidence-section"><div><span>Category confidence</span><strong id="categoryConfidence">92%</strong></div><progress id="categoryProgress" max="100" value="92">92%</progress><div><span>Priority confidence</span><strong id="priorityConfidence">84%</strong></div><progress id="priorityProgress" max="100" value="84">84%</progress></div>
+              <div class="rationale"><span>INFLUENTIAL TERMS</span><div id="rationaleTerms"><b>vpn</b><b>remote employees</b><b>disconnects</b></div></div>
+              <div class="recommendation"><div><span>RECOMMENDED KNOWLEDGE</span><strong id="knowledgeArticle">KB-631 · Isolate network path failure</strong></div><ol id="recommendedActions"></ol></div>
+              <div class="human-control"><div><strong>Keep the human accountable</strong><span>Confirm or correct the result to create feedback evidence.</span></div><button class="approve" id="acceptPrediction">Accept</button><button id="correctPrediction">Correct</button></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" data-page="queue">
+        <div class="page-heading"><div><p class="eyebrow">HUMAN CONTROL PLANE</p><h1>Review queue</h1><span>Low-confidence and critical predictions wait here for accountable validation.</span></div><div class="stage-chip amber"><b id="stageReviewCount">4</b> NEED REVIEW</div></div>
+        <div class="queue-summary"><article><span>OPEN REVIEWS</span><strong id="openReviewCount">04</strong><small>Confidence and criticality gates</small></article><article><span>OLDEST WAIT</span><strong>11m</strong><small>Target under 15 minutes</small></article><article><span>ACCEPTANCE</span><strong>91%</strong><small>Rolling synthetic sample</small></article><article><span>OVERRIDES</span><strong>09%</strong><small>Captured for evaluation</small></article></div>
+        <article class="panel queue-panel"><div class="queue-toolbar"><div class="filter-group"><button class="active">All reviews</button><button>Category</button><button>Priority</button><button>P1 critical</button></div><label><span>Search</span><input id="queueSearch" placeholder="Ticket or category"></label></div><div id="reviewQueue" class="review-list"></div></article>
+      </section>
+
+      <section class="view" data-page="observability">
+        <div class="page-heading"><div><p class="eyebrow">MODEL OPERATIONS</p><h1>Observe the decision system</h1><span>Performance, confidence, drift, and feedback—visible in one audit surface.</span></div><div class="stage-chip">DATA HASH · <b id="dataHash">LOADING</b></div></div>
+        <div class="observability-grid">
+          <article class="panel performance-card"><div class="panel-head"><div><p class="eyebrow">HOLDOUT EVALUATION</p><h2>Model performance</h2></div><span>Deterministic split · 25%</span></div><div class="score-row"><div><span>CATEGORY ACCURACY</span><strong id="categoryAccuracy">—</strong><small>8 service categories</small></div><div><span>CATEGORY MACRO F1</span><strong id="categoryF1">—</strong><small>Class-balanced view</small></div><div><span>PRIORITY ACCURACY</span><strong id="priorityAccuracy">—</strong><small>P1 through P4</small></div><div><span>PRIORITY MACRO F1</span><strong id="priorityF1">—</strong><small>Class-balanced view</small></div></div></article>
+          <article class="panel drift-card"><div class="panel-head"><div><p class="eyebrow">INPUT MONITORING</p><h2>Drift signals</h2></div><span class="live-label"><i></i> STABLE</span></div><div class="drift-bars"><div><span>Vocabulary shift</span><i><b style="width:18%"></b></i><strong>0.18</strong></div><div><span>Confidence shift</span><i><b style="width:11%"></b></i><strong>0.11</strong></div><div><span>Category mix</span><i><b style="width:22%"></b></i><strong>0.22</strong></div><div><span>Priority mix</span><i><b style="width:14%"></b></i><strong>0.14</strong></div></div><p>Illustrative monitoring thresholds. Production drift requires a representative, privacy-reviewed baseline.</p></article>
+          <article class="panel confusion-card"><div class="panel-head"><div><p class="eyebrow">ERROR ANALYSIS</p><h2>Category confidence map</h2></div><span>Darker = stronger</span></div><div class="heatmap"><div class="axis-labels"><span>ID</span><span>CL</span><span>DB</span><span>CO</span><span>HW</span><span>NW</span><span>SC</span><span>AP</span></div><div id="heatmapGrid"></div></div></article>
+          <article class="panel governance-card"><div class="panel-head"><div><p class="eyebrow">GOVERNANCE GATES</p><h2>Release controls</h2></div><span>4 / 4 passing</span></div><ul><li><i>✓</i><div><strong>Data provenance recorded</strong><span>Synthetic generator and immutable hash</span></div></li><li><i>✓</i><div><strong>Evaluation threshold met</strong><span>Macro F1 checked in continuous integration</span></div></li><li><i>✓</i><div><strong>Human review enforced</strong><span>P1 and low-confidence decisions cannot auto-route</span></div></li><li><i>✓</i><div><strong>Feedback is auditable</strong><span>Accepted and corrected outcomes persist locally</span></div></li></ul></article>
+        </div>
+      </section>
+
+      <section class="view" data-page="knowledge">
+        <div class="page-heading"><div><p class="eyebrow">KNOWLEDGE ASSIST</p><h1>Resolution guidance,<br>matched to intent.</h1><span>Classification connects each ticket to safe first actions—not autonomous fixes.</span></div></div>
+        <div class="knowledge-toolbar"><label><span>Search knowledge</span><input id="knowledgeSearch" placeholder="Search category, symptom, or action"></label><span>8 curated articles</span></div>
+        <div class="knowledge-grid" id="knowledgeGrid"></div>
+      </section>
+
+      <section class="view" data-page="model-card">
+        <div class="page-heading"><div><p class="eyebrow">RESPONSIBLE AI ARTIFACT</p><h1>Model card</h1><span>Purpose, boundaries, data, evaluation, and operator responsibilities.</span></div><div class="stage-chip">VERSION 1.0.0</div></div>
+        <div class="model-card-layout">
+          <article class="panel model-intro"><span>TF-IDF + LOGISTIC REGRESSION</span><h2>Interpretable by design.</h2><p>TriageFlow uses separate multiclass pipelines for service category and operational priority. Linear feature weights make influential ticket terms inspectable, while probability thresholds route ambiguous decisions to people.</p><div class="model-tags"><b>384 synthetic tickets</b><b>8 categories</b><b>4 priorities</b><b>No personal data</b></div></article>
+          <article class="panel boundary-card"><p class="eyebrow">INTENDED USE</p><h2>Decision support—not decision replacement</h2><ul><li>Initial triage for internal IT service requests</li><li>Assignment-group and SLA recommendations</li><li>Learning and portfolio demonstration with synthetic text</li></ul><p class="eyebrow red">OUT OF SCOPE</p><ul><li>Autonomous ticket closure or user-impact decisions</li><li>Employee performance or disciplinary evaluation</li><li>Emergency, medical, or life-safety dispatch</li></ul></article>
+          <article class="panel data-lineage"><div class="panel-head"><div><p class="eyebrow">DATA LINEAGE</p><h2>Reproducible training path</h2></div></div><div class="lineage"><div><span>01</span><strong>Generate</strong><small>Seed 42 synthetic templates</small></div><b>→</b><div><span>02</span><strong>Validate</strong><small>Schema + balanced labels</small></div><b>→</b><div><span>03</span><strong>Split</strong><small>75 / 25 stratified holdout</small></div><b>→</b><div><span>04</span><strong>Evaluate</strong><small>Accuracy + macro F1</small></div></div></article>
+          <article class="panel limitations"><p class="eyebrow">KNOWN LIMITATIONS</p><h2>What reviewers should challenge</h2><ol><li><span>01</span><div><strong>Synthetic language</strong><p>Real ticket vocabulary, spelling, languages, and organizational context will differ.</p></div></li><li><span>02</span><div><strong>Probability calibration</strong><p>Confidence supports review routing but is not a guarantee of correctness.</p></div></li><li><span>03</span><div><strong>Operational context</strong><p>Impact, asset criticality, and service dependencies require trusted system integrations.</p></div></li></ol></article>
+        </div>
+      </section>
+
+      <section class="view" data-page="about">
+        <div class="architecture-hero"><p class="eyebrow">SYSTEM DESIGN</p><h1>A small system with<br><em>production-shaped thinking.</em></h1><p>TriageFlow reconstructs my B.Tech intelligent help-desk classification project as a modern, reviewable portfolio implementation. It demonstrates the full lifecycle: data generation, model training, API delivery, operator experience, feedback, observability, testing, and documentation.</p></div>
+        <div class="architecture-flow"><article><span>01 / EXPERIENCE</span><h2>Accessible operator workspace</h2><p>Semantic HTML, responsive CSS, keyboard navigation, and explicit confidence states.</p></article><b>→</b><article><span>02 / SERVICE</span><h2>Typed FastAPI boundary</h2><p>Validated intake, batch classification, queue, feedback, metrics, and model-card endpoints.</p></article><b>→</b><article><span>03 / INTELLIGENCE</span><h2>Two explainable pipelines</h2><p>TF-IDF features and logistic regression for category and priority predictions.</p></article><b>→</b><article><span>04 / EVIDENCE</span><h2>SQLite decision trail</h2><p>Saved classifications, review flags, and operator feedback for future evaluation.</p></article></div>
+        <div class="principles"><article><span>01</span><h2>Confidence is visible</h2><p>Operators see alternatives, thresholds, and influential terms—not a black-box label.</p></article><article><span>02</span><h2>Humans own outcomes</h2><p>Critical or uncertain tickets require validation before operational action.</p></article><article><span>03</span><h2>Evidence is reproducible</h2><p>Seeded data, deterministic training, tests, model metrics, and CI support review.</p></article></div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="/assets/app.js"></script>
+</body>
+</html>
