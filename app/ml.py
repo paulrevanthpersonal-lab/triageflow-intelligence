@@ -1,5 +1,6 @@
 import csv
 import hashlib
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -11,9 +12,11 @@ from sklearn.metrics import accuracy_score, classification_report, f1_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
+from .runtime_paths import runtime_paths
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "tickets.csv"
-ARTIFACT_PATH = ROOT / "artifacts" / "ticket_classifier.joblib"
+ARTIFACT_PATH = runtime_paths(ROOT, os.environ).artifact
 
 ASSIGNMENT_GROUPS = {
     "Access & Identity": "Identity Operations",

@@ -4,8 +4,10 @@ import sqlite3
 from datetime import UTC, datetime
 from pathlib import Path
 
+from .runtime_paths import runtime_paths
+
 ROOT = Path(__file__).resolve().parents[1]
-DB_PATH = Path(os.environ.get("TRIAGEFLOW_DB_PATH", ROOT / "triageflow.db"))
+DB_PATH = runtime_paths(ROOT, os.environ).database
 
 
 def connect() -> sqlite3.Connection:
